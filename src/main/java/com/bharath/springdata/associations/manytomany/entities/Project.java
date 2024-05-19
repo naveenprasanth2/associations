@@ -17,9 +17,6 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "programmers_projects", joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id")
-    , inverseJoinColumns = @JoinColumn(name = "")
-    )
+    @ManyToMany(mappedBy = "projects")
     private Set<Programmer> programmers;
 }
