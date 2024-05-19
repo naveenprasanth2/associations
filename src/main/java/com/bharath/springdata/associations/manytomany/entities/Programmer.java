@@ -17,7 +17,8 @@ public class Programmer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    private String sal;
+    @Column(name = "salary")
+    private int sal;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "programmers_projects",
             joinColumns = @JoinColumn(name = "programmer_id",
