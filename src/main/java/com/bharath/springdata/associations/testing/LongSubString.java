@@ -4,6 +4,6 @@ public class LongSubString {
 
     public static void main(String[] args) {
         String a = "abcabcbb";
-        
+
     }
 }
