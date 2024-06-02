@@ -2,8 +2,8 @@ package com.bharath.springdata.associations.manytomany.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import validator.EmailGroup;
-import validator.UniqueEmailValidator;
+import com.bharath.springdata.associations.validator.EmailGroup;
+import com.bharath.springdata.associations.validator.UniqueEmailValidator;
 
 import java.util.Set;
 

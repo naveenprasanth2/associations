@@ -1,4 +1,4 @@
-package validator;
+package com.bharath.springdata.associations.validator;
 
 import jakarta.validation.Constraint;
 

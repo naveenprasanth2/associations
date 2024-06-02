@@ -5,7 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import validator.EmailGroup;
+import com.bharath.springdata.associations.validator.EmailGroup;
 
 @RestController
 @RequestMapping("/programmer")
