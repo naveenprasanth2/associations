@@ -7,9 +7,13 @@ import com.bharath.springdata.associations.onetomany.entities.Customer;
 import com.bharath.springdata.associations.onetomany.entities.PhoneNumber;
 import com.bharath.springdata.associations.onetomany.repository.CustomerRepository;
 import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.HashSet;
 import java.util.List;
@@ -71,5 +75,19 @@ class AssociationsApplicationTests {
     void testFindProgrammer() {
         Programmer programmer = programmerRepository.findById(1).orElseThrow(NoSuchElementException::new);
         System.out.println(programmer);
+    }
+
+    @Test
+    void testFindProgrammers() {
+        Sort sortBy = Sort.by(Sort.Order.asc("name"));
+        Pageable pageable = PageRequest.of(0, 10, sortBy);
+        List<Programmer> programmers = programmerRepository.findByNameOrderByIdDesc("naveen", pageable);
+    }
+
+    @Test
+    void testFindProgrammersAndSortThem(){
+        Sort sort = Sort.by(Sort.Order.asc("name"));
+        Pageable pageable = PageRequest.of(0, 10, sort);
+        List<Programmer> programmers = programmerRepository.findByNameOrderByIdAsc("naveen", pageable);
     }
 }
