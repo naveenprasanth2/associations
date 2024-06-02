@@ -2,6 +2,8 @@ package com.bharath.springdata.associations.manytomany.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import validator.EmailGroup;
+import validator.UniqueEmailValidator;
 
 import java.util.Set;
 
@@ -26,4 +28,6 @@ public class Programmer {
             inverseJoinColumns = @JoinColumn(name = "project_id",
                     referencedColumnName = "id"))
     private Set<Project> projects;
+    @UniqueEmailValidator(message = "Email should be unique", groups = EmailGroup.class)
+    private String email;
 }
